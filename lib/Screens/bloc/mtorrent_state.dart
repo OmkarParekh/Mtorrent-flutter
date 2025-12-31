@@ -21,11 +21,30 @@ class SearchPageState extends MtorrentState {
 class LoadingState extends MtorrentState {}
 
 class TrendingPageState extends MtorrentState {
-  final trendingdata;
-  const TrendingPageState(this.trendingdata);
+  final List<dynamic> data;
+  final TrendingType trendingType;
+  final TrendingPeriod trendingPeriod;
+  const TrendingPageState(
+      {required this.data,
+      required this.trendingPeriod,
+      required this.trendingType});
 }
 
 class PopularPageState extends MtorrentState {
-  final populardata;
-  const PopularPageState(this.populardata);
+  final List<dynamic> data;
+  final PopularType popularType;
+  final PopularPeriod popularPeriod;
+  const PopularPageState(
+      {required this.data,
+      required this.popularPeriod,
+      required this.popularType});
+}
+
+class TopPageState extends MtorrentState {
+  final List<dynamic> data;
+  final TopCategory topCategory;
+  const TopPageState({
+    required this.data,
+    required this.topCategory,
+  });
 }

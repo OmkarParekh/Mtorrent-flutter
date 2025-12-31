@@ -17,9 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-    return  BlocProvider(
+    return BlocProvider(
       create: (context) => MtorrentBloc(),
-      child:const MaterialApp(
+      child: MaterialApp(
+        theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
         title: 'Mtorrent',
         home: Home(),
