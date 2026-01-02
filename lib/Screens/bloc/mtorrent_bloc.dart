@@ -23,12 +23,17 @@ class MtorrentBloc extends Bloc<MtorrentEvent, MtorrentState> {
         var responseData = json.decode(response.body);
         // print(responseData['Magnetlink']);
         var magnetlink = responseData['Magnetlink'];
-        // print(magnetlink);
-        if (await canLaunchUrl(Uri.parse(magnetlink))) {
-          await launchUrl(Uri.parse(magnetlink));
-        } else {
-          // throw 'Could not launch $url';
-        }
+        print(magnetlink);
+        await launchUrl(
+          Uri.parse(magnetlink),
+          mode: LaunchMode.externalApplication,
+        );
+        // if (await canLaunchUrl(Uri.parse(magnetlink))) {
+        //   await launchUrl(Uri.parse(magnetlink));
+        // } else {
+        //   print("cannot lucnh");
+        //   // throw 'Could not launch $url';
+        // }
       } catch (err) {
         print(err);
       }
